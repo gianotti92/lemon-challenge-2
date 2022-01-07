@@ -25,7 +25,7 @@ public class InitializeFilter implements Filter {
         userRequest.addRequest();
 
         if ((isTimeExceeded() || isRequestNumberExceeded())) {
-            throw new RuntimeException("time exceeded");
+            throw new RuntimeException("exceeded");
         }
 
         System.out.println(userRequest.getNumberOfRequest());

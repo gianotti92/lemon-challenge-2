@@ -11,6 +11,6 @@ public class ContextConfiguration {
     @Bean
     @SessionScope
     public UserRequest getUserConfig() {
-        return  new UserRequest();
+        return new UserRequest();
     }
 }
