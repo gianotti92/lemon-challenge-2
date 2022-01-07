@@ -22,4 +22,9 @@ public class UserRequest {
     public void addRequest() {
         numberOfRequest++;
     }
+
+    public void resetRequest() {
+        timeStamp = System.currentTimeMillis();
+        numberOfRequest = 1;
+    }
 }

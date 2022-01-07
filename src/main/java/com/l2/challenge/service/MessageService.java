@@ -2,6 +2,7 @@ package com.l2.challenge.service;
 
 import com.l2.challenge.client.FoaasClient;
 import com.l2.challenge.dto.MessageDto;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 
@@ -13,6 +14,7 @@ public class MessageService {
         this.foaasClient = foaasClient;
     }
 
+    @Cacheable("message")
     public MessageDto getMessage() {
         return new MessageDto(foaasClient.getMessage());
     }

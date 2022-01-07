@@ -24,13 +24,14 @@ public class InitializeFilter implements Filter {
 
         userRequest.addRequest();
 
-        if ((isTimeExceeded() || isRequestNumberExceeded())) {
-            throw new RuntimeException("exceeded");
+        if((isTimeExceeded())) {
+            userRequest.resetRequest();
         }
 
-        System.out.println(userRequest.getNumberOfRequest());
+        if (isRequestNumberExceeded()) {
+            throw new RuntimeException("request exceeded");
+        }
         filterChain.doFilter(servletRequest, servletResponse);
-
     }
 
     private Boolean isTimeExceeded() {
@@ -38,6 +39,7 @@ public class InitializeFilter implements Filter {
     }
 
     private Boolean isRequestNumberExceeded() {
+        System.out.println(String.format("number of req: %s", userRequest.getNumberOfRequest()));
         return userRequest.getNumberOfRequest() > EXCEEDED_REQUEST_NUMBER;
     }
 }
