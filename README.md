@@ -17,3 +17,10 @@ No es necesario modelar ningun tipo de usuario, se puede utilizar el metodo de a
 - Se consume la API 6 veces dentro de un periodo de 10 segundos y el sexto llamado devuelve un error.
 - Se consume la API 6 veces dentro de un periodo de 10 segundos, se hace un septimo llamado 10 segundos despues del primer llamado y este devuelve un mensaje del servicio
 
+eg. curl--
+
+
+curl --request GET \
+  --url http://localhost:8080/message \
+  --header 'user_id: 9112520' \
+  --cookie JSESSIONID=9822946B9179E2E05AA12F418873C30F 
